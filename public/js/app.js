@@ -5321,6 +5321,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "test",
   data: function data() {
@@ -10501,7 +10503,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-5b6abe5d] {\n  margin: 0;\n  padding: 0;\n}\n.flex[data-v-5b6abe5d] {\n  margin-top: 100px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nform[data-v-5b6abe5d] {\n  width: 300px;\n  border: 1px solid black;\n  padding: 10px;\n  box-shadow: 0 0 30px 3px gray;\n  background-color: rgba(235, 232, 232, 0.596);\n}\n.enter-box[data-v-5b6abe5d] {\n  margin-bottom: 10px;\n}\n.enter-box__input[data-v-5b6abe5d] {\n  display: block;\n  width: 100%;\n}\n.enter-box__btn[data-v-5b6abe5d] {\n  background-color: rgba(0, 98, 255, 0.863);\n  border-radius: 5px;\n}\n.enter-box__btn[data-v-5b6abe5d]:hover {\n  box-shadow: 0 0 5px 1px gray;\n}\n.enter-box__p[data-v-5b6abe5d] {\n  color: red;\n}\n.enter-box__err[data-v-5b6abe5d] {\n  height: 20px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-5b6abe5d] {\n  margin: 0;\n  padding: 0;\n}\n.flex[data-v-5b6abe5d] {\n  margin-top: 100px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nform[data-v-5b6abe5d] {\n  width: 300px;\n  border: 1px solid black;\n  padding: 10px;\n  box-shadow: 0 0 30px 3px gray;\n  background-color: rgba(235, 232, 232, 0.596);\n}\n.enter-box[data-v-5b6abe5d] {\n  margin-bottom: 10px;\n}\n.enter-box__input[data-v-5b6abe5d] {\n  display: block;\n  width: 100%;\n}\n.enter-box__btn[data-v-5b6abe5d] {\n  padding: 10px;\n  color: white;\n  background-color: rgba(0, 98, 255, 0.863);\n  border-radius: 5px;\n}\n.enter-box__btn[data-v-5b6abe5d]:hover {\n  box-shadow: 0 0 5px 1px gray;\n}\n.enter-box__p[data-v-5b6abe5d] {\n  color: red;\n}\n.enter-box__err[data-v-5b6abe5d] {\n  height: 20px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28608,7 +28610,7 @@ var render = function () {
         _c(
           "button",
           { staticClass: "enter-box__btn", attrs: { type: "submit" } },
-          [_vm._v("Отправить")]
+          [_vm._v("\n            зарегистрироваться\n        ")]
         ),
       ]
     ),

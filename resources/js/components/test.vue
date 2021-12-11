@@ -71,7 +71,9 @@
                     </p>
                 </div>
             </div>
-            <button type="submit" class="enter-box__btn">Отправить</button>
+            <button type="submit" class="enter-box__btn">
+                зарегистрироваться
+            </button>
         </form>
     </div>
 </template>
@@ -173,6 +175,8 @@ form {
         width: 100%;
     }
     &__btn {
+        padding: 10px;
+        color: white;
         background-color: rgba(0, 98, 255, 0.863);
         border-radius: 5px;
     }
