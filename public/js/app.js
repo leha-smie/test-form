@@ -5296,8 +5296,90 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "test"
+  name: "test",
+  data: function data() {
+    return {
+      values: {
+        personName: "",
+        dateOld: "",
+        place: "",
+        pasportSer: ""
+      },
+      isVisible: false
+    };
+  },
+  computed: {
+    getValues: function getValues() {
+      return JSON.stringify(this.values);
+    }
+  },
+  methods: {
+    setCookie: function setCookie() {
+      if (this.values.dateOld && this.values.place && this.values.pasportSer) {
+        this.isVisible = false;
+        console.log(this.getValues);
+        alert("\u0444\u0430\u0439\u043B json: ".concat(this.getValues));
+        document.cookie = "data=".concat(this.getValues);
+
+        for (var key in this.values) {
+          this.values[key] = "";
+        }
+      } else {
+        this.isVisible = true;
+        return;
+      }
+    },
+    cookie: function cookie() {
+      if (this.getCookie("data")) {
+        return JSON.parse(this.getCookie("data"));
+      } else {
+        return false;
+      }
+    },
+    writeField: function writeField(name) {
+      for (var key in this.values) {
+        if (key === name) {
+          var cookie = this.cookie();
+
+          if (cookie) {
+            this.values[key] = cookie[name];
+          } else {
+            break;
+          }
+        }
+      }
+    },
+    getCookie: function getCookie(name) {
+      var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"));
+      return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+  }
 });
 
 /***/ }),
@@ -10419,7 +10501,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".flex[data-v-5b6abe5d] {\n  margin-top: 100px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nform[data-v-5b6abe5d] {\n  width: 300px;\n  border: 1px solid black;\n  padding: 10px;\n  box-shadow: 0 0 30px 3px gray;\n  background-color: rgba(235, 232, 232, 0.596);\n}\n.enter-box__input[data-v-5b6abe5d] {\n  display: block;\n  width: 100%;\n  margin-bottom: 10px;\n}\n.enter-box__btn[data-v-5b6abe5d] {\n  background-color: rgba(0, 98, 255, 0.863);\n  border-radius: 5px;\n}\n.enter-box__btn[data-v-5b6abe5d]:hover {\n  box-shadow: 0 0 5px 1px gray;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*[data-v-5b6abe5d] {\n  margin: 0;\n  padding: 0;\n}\n.flex[data-v-5b6abe5d] {\n  margin-top: 100px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nform[data-v-5b6abe5d] {\n  width: 300px;\n  border: 1px solid black;\n  padding: 10px;\n  box-shadow: 0 0 30px 3px gray;\n  background-color: rgba(235, 232, 232, 0.596);\n}\n.enter-box[data-v-5b6abe5d] {\n  margin-bottom: 10px;\n}\n.enter-box__input[data-v-5b6abe5d] {\n  display: block;\n  width: 100%;\n}\n.enter-box__btn[data-v-5b6abe5d] {\n  background-color: rgba(0, 98, 255, 0.863);\n  border-radius: 5px;\n}\n.enter-box__btn[data-v-5b6abe5d]:hover {\n  box-shadow: 0 0 5px 1px gray;\n}\n.enter-box__p[data-v-5b6abe5d] {\n  color: red;\n}\n.enter-box__err[data-v-5b6abe5d] {\n  height: 20px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28340,17 +28422,188 @@ var render = function () {
         on: {
           submit: function ($event) {
             $event.preventDefault()
+            return _vm.setCookie()
           },
         },
       },
       [
-        _vm._m(0),
+        _c("div", { staticClass: "enter-box" }, [
+          _c(
+            "label",
+            { staticClass: "enter-box__lable", attrs: { for: "personName" } },
+            [_vm._v("ФИО")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.values.personName,
+                expression: "values.personName",
+              },
+            ],
+            staticClass: "enter-box__input",
+            attrs: {
+              type: "text",
+              id: "personName",
+              placeholder: "введите данные",
+            },
+            domProps: { value: _vm.values.personName },
+            on: {
+              focus: function ($event) {
+                return _vm.writeField($event.target.id)
+              },
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.values, "personName", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "enter-box__err" }),
+        ]),
         _vm._v(" "),
-        _vm._m(1),
+        _c("div", { staticClass: "enter-box" }, [
+          _c(
+            "label",
+            { staticClass: "enter-box__label", attrs: { for: "dateOld" } },
+            [_vm._v("Дата рождения")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.values.dateOld,
+                expression: "values.dateOld",
+              },
+            ],
+            staticClass: "enter-box__input",
+            attrs: { type: "date", id: "dateOld" },
+            domProps: { value: _vm.values.dateOld },
+            on: {
+              focus: function ($event) {
+                return _vm.writeField($event.target.id)
+              },
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.values, "dateOld", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "enter-box__err" }, [
+            !_vm.values.dateOld && _vm.isVisible
+              ? _c("p", { staticClass: "enter-box__p" }, [
+                  _vm._v(
+                    "\n                    обязательное поле для ввода\n                "
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+        ]),
         _vm._v(" "),
-        _vm._m(2),
+        _c("div", { staticClass: "enter-box" }, [
+          _c(
+            "label",
+            { staticClass: "enter-box__label", attrs: { for: "place" } },
+            [_vm._v("Место рождения")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.values.place,
+                expression: "values.place",
+              },
+            ],
+            staticClass: "enter-box__input",
+            attrs: {
+              type: "text",
+              id: "place",
+              "aria-describedby": "emailHelp",
+              placeholder: "введите данные",
+            },
+            domProps: { value: _vm.values.place },
+            on: {
+              focus: function ($event) {
+                return _vm.writeField($event.target.id)
+              },
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.values, "place", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "enter-box__err" }, [
+            !_vm.values.place && _vm.isVisible
+              ? _c("p", { staticClass: "enter-box__p" }, [
+                  _vm._v(
+                    "\n                    обязательное поле для ввода\n                "
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+        ]),
         _vm._v(" "),
-        _vm._m(3),
+        _c("div", { staticClass: "enter-box" }, [
+          _c(
+            "label",
+            { staticClass: "enter-box__label", attrs: { for: "pasportSer" } },
+            [_vm._v("Номер серия паспорта")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.values.pasportSer,
+                expression: "values.pasportSer",
+              },
+            ],
+            staticClass: "enter-box__input",
+            attrs: {
+              type: "text",
+              id: "pasportSer",
+              "aria-describedby": "emailHelp",
+              placeholder: "введите данные",
+            },
+            domProps: { value: _vm.values.pasportSer },
+            on: {
+              focus: function ($event) {
+                return _vm.writeField($event.target.id)
+              },
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.values, "pasportSer", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "enter-box__err" }, [
+            !_vm.values.pasportSer && _vm.isVisible
+              ? _c("p", { staticClass: "enter-box__p" }, [
+                  _vm._v(
+                    "\n                    обязательное поле для ввода\n                "
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+        ]),
         _vm._v(" "),
         _c(
           "button",
@@ -28361,102 +28614,7 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "enter-box" }, [
-      _c(
-        "label",
-        {
-          staticClass: "enter-box__lable",
-          attrs: { for: "exampleInputEmail1" },
-        },
-        [_vm._v("ФИО")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "enter-box__input",
-        attrs: {
-          type: "text",
-          id: "exampleInputEmail1",
-          placeholder: "введите данные",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "enter-box" }, [
-      _c(
-        "label",
-        {
-          staticClass: "enter-box__label",
-          attrs: { for: "exampleInputPassword1" },
-        },
-        [_vm._v("Дата рождения")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "enter-box__input",
-        attrs: { type: "date", id: "exampleInputPassword1" },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "enter-box" }, [
-      _c(
-        "label",
-        {
-          staticClass: "enter-box__label",
-          attrs: { for: "exampleInputEmail1" },
-        },
-        [_vm._v("Место рождения")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "enter-box__input",
-        attrs: {
-          type: "text",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder: "введите данные",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "enter-box" }, [
-      _c(
-        "label",
-        {
-          staticClass: "enter-box__label",
-          attrs: { for: "exampleInputEmail1" },
-        },
-        [_vm._v("Номер серия паспорта")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "enter-box__input",
-        attrs: {
-          type: "text",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder: "введите данные",
-        },
-      }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
